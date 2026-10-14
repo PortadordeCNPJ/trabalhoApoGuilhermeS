@@ -1,0 +1,15 @@
+{
+    "name": "guilherme/trabalho-apo-guilherme-s",
+    "autoload": {
+        "psr-4": {
+            "Guilherme\\TrabalhoApoGuilhermeS\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "PortadordeCNPJ",
+            "email": "guilhermedesouzamuller@gmail.com"
+        }
+    ],
+    "require": {}
+}
