@@ -9,7 +9,7 @@ $paginas = [
     'home' => 'home.php',
     'produtos' => 'produtos.php',
     'fretes' => 'fretes.php',
-    'transportadores' => 'transportadores.php'
+    'transporte' => 'transporte.php'
 ];
 
 // Verifica se a página existe
@@ -38,15 +38,15 @@ $arquivo = __DIR__ . '/../app/views/' . $paginas[$pagina];
     <div class="cssMain">
 
         <div class="headerMain">
-            <a href="index.php?pagina=home">Teste</a>
+            <?php require '../app/views/header.php'; ?>
         </div>
 
-        <div>
+        <div class="containerMain">
              <?php require $arquivo ?>
         </div>
 
         <div class="footerMain">
-            headerMain
+            <?php require '../app/views/footer.php'; ?>
         </div>
     </div>
 

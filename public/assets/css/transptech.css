@@ -1,17 +1,32 @@
 html, body {
-  padding: 0px;
-  margin: 0px;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 .cssMain {
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.containerMain {
     display: flex;
 }
 
 .headerMain {
-    align-self: flex-start;
+    flex-shrink: 0;
+    padding:20px;
+}
+
+.containerMain {
+    flex: 1;
+    padding: 20px;
 }
 
 .footerMain {
-    align-self: flex-end;
+    flex-shrink: 0;
+    padding: 20px;
 }
