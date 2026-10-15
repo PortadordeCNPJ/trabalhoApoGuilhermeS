@@ -1,0 +1,17 @@
+html, body {
+  padding: 0px;
+  margin: 0px;
+}
+
+.cssMain {
+    height: 100%;
+    display: flex;
+}
+
+.headerMain {
+    align-self: flex-start;
+}
+
+.footerMain {
+    align-self: flex-end;
+}
