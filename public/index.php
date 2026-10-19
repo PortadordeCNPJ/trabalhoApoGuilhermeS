@@ -22,6 +22,9 @@ if (!isset($paginas[$pagina])) {
 
 // Caminho completo da página
 $arquivo = __DIR__ . '/../app/views/' . $paginas[$pagina];
+
+
+// FAZER O LOGIN PARA PODER ARRUMAR A TELA DE LOGIN
 ?>
 
 <!DOCTYPE html>

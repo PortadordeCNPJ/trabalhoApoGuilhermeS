@@ -36,10 +36,6 @@ html, body {
 /*-------------------- TODO O CSS -----------------------------------*/
 
 
-/* =========================================
-   TRANSPTECH — DARK / NEON THEME
-   ========================================= */
-
 :root {
     --tt-bg: #080a0b;
     --tt-surface: #101416;
@@ -540,5 +536,199 @@ a:focus-visible {
         scroll-behavior: auto !important;
         animation-duration: 0.01ms !important;
         transition-duration: 0.01ms !important;
+    }
+}
+
+
+/*-------------------- FORMULARIO DO INICIO -----------------------------------*/
+
+.tt-login {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    color: #e8e8e8;
+}
+
+/* Cartão do formulário */
+
+.tt-login__form {
+    width: 100%;
+    max-width: 420px;
+    padding: 38px;
+    background: #171a1e;
+    border: 1px solid #30363d;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+    box-sizing: border-box;
+}
+
+/* Cabeçalho */
+
+.tt-login__header {
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.tt-login__brand {
+    display: inline-block;
+    margin-bottom: 28px;
+    color: #f2f2f2;
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.tt-login__brand span {
+    color: #39ff88;
+}
+
+.tt-login__title {
+    margin: 0 0 10px;
+    color: #f5f5f5;
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.tt-login__subtitle {
+    margin: 0;
+    color: #9299a3;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Campos de entrada */
+
+.tt-login__field {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 22px;
+}
+
+.tt-login__field label {
+    color: #d5d9df;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.tt-login__field input {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 14px;
+    box-sizing: border-box;
+
+    background: #101215;
+    border: 1px solid #363d46;
+    border-radius: 8px;
+
+    color: #f5f5f5;
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.tt-login__field input::placeholder {
+    color: #68717d;
+}
+
+.tt-login__field input:focus {
+    border-color: #39ff88;
+    box-shadow: 0 0 0 3px rgba(57, 255, 136, 0.12);
+}
+
+/* Opções */
+
+.tt-login__options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 4px 0 25px;
+}
+
+.tt-login__remember {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: #b8bec7;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.tt-login__remember input {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    accent-color: #39ff88;
+    cursor: pointer;
+}
+
+/* Botão principal */
+
+.tt-login__button {
+    display: block;
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 18px;
+
+    background: #39ff88;
+    border: 1px solid #39ff88;
+    border-radius: 8px;
+
+    color: #101713;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 800;
+
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s,
+                transform 0.2s;
+}
+
+.tt-login__button:hover {
+    background: #24e875;
+    box-shadow: 0 0 20px rgba(57, 255, 136, 0.18);
+    transform: translateY(-1px);
+}
+
+.tt-login__button:active {
+    transform: translateY(0);
+}
+
+.tt-login__button:focus-visible {
+    outline: 2px solid #f5f5f5;
+    outline-offset: 4px;
+}
+
+/* Rodapé do formulário */
+
+.tt-login__footer {
+    margin: 30px 0 0;
+    color: #737b86;
+    font-size: 12px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Responsividade */
+
+@media (max-width: 480px) {
+    .tt-login {
+        padding: 24px 14px;
+    }
+
+    .tt-login__form {
+        padding: 28px 22px;
+        border-radius: 12px;
+    }
+
+    .tt-login__title {
+        font-size: 24px;
     }
 }
