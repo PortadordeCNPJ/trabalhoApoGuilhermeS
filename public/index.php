@@ -6,10 +6,12 @@ $pagina = $_GET['pagina'] ?? 'home';
 
 // Páginas disponíveis
 $paginas = [
+    'login'=> 'login.php',
     'home' => 'home.php',
     'produtos' => 'produtos.php',
     'fretes' => 'fretes.php',
-    'transporte' => 'transporte.php'
+    'transporte' => 'transporte.php',
+    'criarUsuarios' => 'criarUsuarios.php'
 ];
 
 // Verifica se a página existe

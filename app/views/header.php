@@ -1,6 +1,6 @@
 <nav class="navbar lg:navbar-expand bg-1 fg-2">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">TranspTech</a>
     <button class="btn-icon navbar-toggler" type="button" data-bs-toggle="drawer" data-bs-target="#navbarNavMenu" aria-controls="navbarNavMenu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon" aria-hidden="true"></span>
     </button>
@@ -12,13 +12,13 @@
       <div class="drawer-body">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="index.php?pagina=home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link" href="index.php?pagina=produtos">Produtos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
+            <a class="nav-link" href="index.php?pagina=transporte">Transporte</a>
           </li>
           <li class="nav-item">
             <button class="nav-link" type="button" data-bs-toggle="menu" aria-expanded="false">
