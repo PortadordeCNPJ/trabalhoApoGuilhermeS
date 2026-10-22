@@ -6,19 +6,35 @@ $pagina = $_GET['pagina'] ?? 'home';
 
 // Páginas disponíveis
 $paginas = [
-    'login'=> 'login.php',
+    'login' => 'login.php',
     'home' => 'home.php',
     'produtos' => 'produtos.php',
     'fretes' => 'fretes.php',
     'transporte' => 'transporte.php',
+    
+    //Páginas que vão ficando dentro do controller
     'criarUsuarios' => 'criarUsuarios.php'
 ];
 
-// Verifica se a página existe
-if (!isset($paginas[$pagina])) {
-    http_response_code(404);
-    $pagina = 'home';
+if (empty($_SESSION)) {
+
+    // Verifica se a página existe
+    if (!isset($paginas[$pagina])) {
+        http_response_code(404);
+        $pagina = 'login';
+    } else {
+
+        // Verifica se a página existe
+        if (!isset($paginas[$pagina])) {
+            http_response_code(404);
+            $pagina = 'home';
+        }
+    }
 }
+
+// Verifica se a página existe
+
+
 
 // Caminho completo da página
 $arquivo = __DIR__ . '/../app/views/' . $paginas[$pagina];
@@ -40,24 +56,37 @@ $arquivo = __DIR__ . '/../app/views/' . $paginas[$pagina];
 </head>
 
 <body>
-    <div class="cssMain">
 
-        <div class="headerMain">
-            <?php require '../app/views/header.php'; ?>
+    <?php
+
+    if (empty($_SESSION)) {
+
+    ?>
+        <div>
+            <?php require $arquivo ?>
         </div>
 
-        <div class="containerMain">
-             <?php require $arquivo ?>
+    <?php
+    } else {
+    ?>
+        <div class="cssMain">
+
+            <div class="headerMain">
+                <?php require '../app/views/header.php'; ?>
+            </div>
+
+            <div class="containerMain">
+                <?php require $arquivo ?>
+            </div>
+
+            <div class="footerMain">
+                <?php require '../app/views/footer.php'; ?>
+            </div>
         </div>
+    <?php
+    }
+    ?>
 
-        <div class="footerMain">
-            <?php require '../app/views/footer.php'; ?>
-        </div>
-    </div>
-
-
-
-   
 
 </body>
 
