@@ -1,4 +1,5 @@
 <?php
+
 require "../bootstrap.php";
 
 // Página padrão
@@ -6,14 +7,16 @@ $pagina = $_GET['pagina'] ?? 'home';
 
 // Páginas disponíveis
 $paginas = [
+    //Views
     'login' => 'login.php',
     'home' => 'home.php',
     'produtos' => 'produtos.php',
     'fretes' => 'fretes.php',
     'transporte' => 'transporte.php',
-    
+    'criarUsuarios' => 'criarUsuarios.php',
+
     //Páginas que vão ficando dentro do controller
-    'criarUsuarios' => 'criarUsuarios.php'
+    'UsuarioLogin' => '../app/controllers/UsuarioLogin.php',
 ];
 
 if (empty($_SESSION)) {

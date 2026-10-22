@@ -24,4 +24,20 @@ class Usuario
             ':tipo_usuario' => 'usuario'
         ]);
     }
+
+    public static function buscarPorEmail(PDO $pdo, string $email): array|false
+
+    {
+        $sql = "SELECT id_usuario, nome, email, senha
+            FROM usuarios
+            WHERE email =:email
+            LIMIT 1";
+
+        $smt = $pdo->prepare($sql);
+        $smt->execute([
+            'email' => $email
+        ]);
+
+        return $smt->fetch();
+    }
 }
