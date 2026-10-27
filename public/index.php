@@ -2,6 +2,7 @@
 
 require "../bootstrap.php";
 
+
 // Página padrão
 $pagina = $_GET['pagina'] ?? 'login';
 
@@ -19,6 +20,10 @@ $paginas = [
     'usuarioLogin' => 'controllers/UsuarioLogin.php',
     
 ];
+
+if ($_SESSION['tipo_usuario'] === "admin") {
+    
+}
 
 if (empty($_SESSION)) {
 
