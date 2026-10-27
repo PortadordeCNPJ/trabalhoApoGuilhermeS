@@ -20,7 +20,7 @@ class Usuario
         return $stmt->execute([
             ':nome' => $nome,
             ':email' => $email,
-            ':senha' => password_hash($senha, PASSWORD_DEFAULT),
+            ':senha' => md5($senha),
             ':tipo_usuario' => 'usuario'
         ]);
     }

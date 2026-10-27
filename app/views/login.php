@@ -1,5 +1,5 @@
 <div class="tt-login">
-    <form class="tt-login__form" action="../app/controllers/UsuarioLogin.php" method="POST">
+    <form class="tt-login__form" action="index.php?pagina=usuarioLogin" method="POST">
 
         <div class="tt-login__header">
             <span class="tt-login__brand">TRANSP<span>TECH</span></span>

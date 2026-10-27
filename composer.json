@@ -2,7 +2,8 @@
     "name": "guilherme/trabalho-apo-guilherme-s",
     "autoload": {
         "psr-4": {
-            "Guilherme\\TrabalhoApoGuilhermeS\\": "src/"
+            "Guilherme\\TrabalhoApoGuilhermeS\\": "src/",
+            "app\\":"app"
         }
     },
     "authors": [

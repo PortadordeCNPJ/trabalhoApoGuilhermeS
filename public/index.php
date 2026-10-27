@@ -3,20 +3,21 @@
 require "../bootstrap.php";
 
 // Página padrão
-$pagina = $_GET['pagina'] ?? 'home';
+$pagina = $_GET['pagina'] ?? 'login';
 
 // Páginas disponíveis
 $paginas = [
     //Views
-    'login' => 'login.php',
-    'home' => 'home.php',
-    'produtos' => 'produtos.php',
-    'fretes' => 'fretes.php',
-    'transporte' => 'transporte.php',
-    'criarUsuarios' => 'criarUsuarios.php',
+    'login' => 'views/login.php',
+    'home' => 'views/home.php',
+    'produtos' => 'views/produtos.php',
+    'fretes' => 'views/fretes.php',
+    'transporte' => 'views/transporte.php',
+    'criarUsuarios' => 'views/criarUsuarios.php',
 
     //Páginas que vão ficando dentro do controller
-    'UsuarioLogin' => '../app/controllers/UsuarioLogin.php',
+    'usuarioLogin' => 'controllers/UsuarioLogin.php',
+    
 ];
 
 if (empty($_SESSION)) {
@@ -40,7 +41,7 @@ if (empty($_SESSION)) {
 
 
 // Caminho completo da página
-$arquivo = __DIR__ . '/../app/views/' . $paginas[$pagina];
+$arquivo = __DIR__ . '/../app/' . $paginas[$pagina];
 
 
 // FAZER O LOGIN PARA PODER ARRUMAR A TELA DE LOGIN
@@ -61,7 +62,6 @@ $arquivo = __DIR__ . '/../app/views/' . $paginas[$pagina];
 <body>
 
     <?php
-
     if (empty($_SESSION)) {
 
     ?>

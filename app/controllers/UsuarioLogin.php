@@ -10,7 +10,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email'] ?? '');
-    $senha = $_POST['senha'] ?? '';
+    $senha = md5($_POST['senha']) ?? '';
 
     if ($email === '' || $senha === '') {
         $_SESSION['erro_login'] = 'Informe o e-mail e a senha.';
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $usuario = Usuario::buscarPorEmail($pdo, $email);
 
-        if ($usuario && password_verify($senha, $usuario['senha'])) {
+        if ($senha === $usuario['senha'] && $email === $usuario['email']) {
             session_regenerate_id(true);
 
             $_SESSION['id_usuario'] = $usuario['id_usuario'];
@@ -34,9 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
         }
 
-        $_SESSION['erro_login'] = 'E-mail ou senha incorretos.';
+        echo "<script>alert('Usuario ou senha não encontros');</script>";
         header('Location: index.php?pagina=login');
-        exit;
+        //echo "<script>location.href='../app/views/login.';<script>";
 
     } catch (\PDOException $e) {
         error_log($e->getMessage());
