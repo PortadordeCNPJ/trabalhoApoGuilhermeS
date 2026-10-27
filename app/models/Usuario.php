@@ -28,7 +28,7 @@ class Usuario
     public static function buscarPorEmail(PDO $pdo, string $email): array|false
 
     {
-        $sql = "SELECT id_usuario, nome, email, senha
+        $sql = "SELECT id_usuario, nome, email, senha, tipo_usuario
             FROM usuarios
             WHERE email =:email
             LIMIT 1";

@@ -4,9 +4,6 @@
 use app\models\Connection;
 use app\models\Usuario;
 
-if (session_status() !== PHP_SESSION_ACTIVE) {
-    session_start();
-}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email'] ?? '');
@@ -29,6 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['id_usuario'] = $usuario['id_usuario'];
             $_SESSION['nome_usuario'] = $usuario['nome'];
             $_SESSION['email_usuario'] = $usuario['email'];
+            $_SESSION['tipo_usuario'] = $usuario['tipo_usuario'];
+
 
             header('Location: index.php?pagina=home');
             exit;
