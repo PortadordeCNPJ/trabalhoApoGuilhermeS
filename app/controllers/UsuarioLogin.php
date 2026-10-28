@@ -28,15 +28,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['email_usuario'] = $usuario['email'];
             $_SESSION['tipo_usuario'] = $usuario['tipo_usuario'];
 
+            if ($usuario['tipo_usuario'] === 'admin') {
+                echo "<script>alert('Login efetuado com sucesso');</script>";
+                header('Location: index.php?pagina=admin');
+            } else {
+                echo "<script>alert('Login efetuado com sucesso');</script>";
+                header('Location: index.php?pagina=home');
+            }
+        } else {
 
-            header('Location: index.php?pagina=home');
-            exit;
+            echo "<script>alert('Usuario ou senha não encontros');</script>";
+            header('Location: index.php?pagina=login');
+            //echo "<script>location.href='../app/views/login.';<script>";
         }
-
-        echo "<script>alert('Usuario ou senha não encontros');</script>";
-        header('Location: index.php?pagina=login');
-        //echo "<script>location.href='../app/views/login.';<script>";
-
     } catch (\PDOException $e) {
         error_log($e->getMessage());
 

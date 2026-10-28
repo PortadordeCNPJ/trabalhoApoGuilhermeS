@@ -4,26 +4,42 @@ require "../bootstrap.php";
 
 
 // Página padrão
-$pagina = $_GET['pagina'] ?? 'login';
+$pagina = $_GET['pagina'] ?? 'home';
 
 // Páginas disponíveis
-$paginas = [
-    //Views
-    'login' => 'views/login.php',
-    'home' => 'views/home.php',
-    'produtos' => 'views/produtos.php',
-    'fretes' => 'views/fretes.php',
-    'transporte' => 'views/transporte.php',
-    'criarUsuarios' => 'views/criarUsuarios.php',
 
-    //Páginas que vão ficando dentro do controller
-    'usuarioLogin' => 'controllers/UsuarioLogin.php',
-    
-];
+if (empty($_SESSION)) {
+    $paginas = [
+        //Views
+        'login' => 'views/login.php',
 
-if ($_SESSION['tipo_usuario'] === "admin") {
-    
+        //Páginas que vão ficando dentro do controller
+        'usuarioLogin' => 'controllers/UsuarioLogin.php',
+    ];
+} else {
+    if ($_SESSION['tipo_usuario'] === "usuario") {
+        $paginas = [
+            //Views
+            'home' => 'views/home.php',
+            'produtos' => 'views/produtos.php',
+            'fretes' => 'views/fretes.php',
+            'transporte' => 'views/transporte.php',
+            'criarUsuarios' => 'views/criarUsuarios.php',
+        ];
+    } else {
+        $paginas = [
+            //Views
+            'home' => 'views/home.php',
+            'produtos' => 'views/produtos.php',
+            'fretes' => 'views/fretes.php',
+            'transporte' => 'views/transporte.php',
+            'criarUsuarios' => 'views/criarUsuarios.php',
+            'admin' => 'views/admin/adminHome.php',
+
+        ];
+    }
 }
+
 
 if (empty($_SESSION)) {
 
