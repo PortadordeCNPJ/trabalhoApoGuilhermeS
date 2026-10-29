@@ -30,13 +30,22 @@ if (empty($_SESSION)) {
         $paginas = [
             //Views
             'home' => 'views/home.php',
-            'produtos' => 'views/produtos.php',
             'fretes' => 'views/fretes.php',
             'transporte' => 'views/transporte.php',
             'criarUsuarios' => 'views/criarUsuarios.php',
             'admin' => 'views/admin/adminHome.php',
-
+            'cadastro_produtos' => 'views/admin/produtos.php',
+            'produtoController' => 'controllers/ProdutoController.php',
         ];
+        if ($pagina === 'produto-salvar') {
+            \app\controllers\ProdutoController::cadastrar();
+            exit;
+        }
+
+        if ($pagina === 'cadastro_produtos') {
+            \app\controllers\ProdutoController::index();
+            exit;
+        }
     }
 }
 
@@ -77,6 +86,7 @@ $arquivo = __DIR__ . '/../app/' . $paginas[$pagina];
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
     <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="./assets/css/transptech.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/produtos.css">
     <title>TranspTech</title>
 </head>
 
