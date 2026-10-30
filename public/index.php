@@ -37,15 +37,6 @@ if (empty($_SESSION)) {
             'cadastro_produtos' => 'views/admin/produtos.php',
             'produtoController' => 'controllers/ProdutoController.php',
         ];
-        if ($pagina === 'produto-salvar') {
-            \app\controllers\ProdutoController::cadastrar();
-            exit;
-        }
-
-        if ($pagina === 'cadastro_produtos') {
-            \app\controllers\ProdutoController::index();
-            exit;
-        }
     }
 }
 
@@ -110,7 +101,19 @@ $arquivo = __DIR__ . '/../app/' . $paginas[$pagina];
             </div>
 
             <div class="containerMain">
-                <?php require $arquivo ?>
+
+                <?php
+
+                require $arquivo;
+
+                if ($arquivo === 'C:\xampp\htdocs\trabalhoApoGuilhermeS\public/../app/controllers/ProdutoController.php') {
+                    \app\controllers\ProdutoController::cadastrar();
+                }
+
+                if ($arquivo === 'C:\xampp\htdocs\trabalhoApoGuilhermeS\public/../app/views/admin/produtos.php') {
+                    \app\controllers\ProdutoController::index();
+                }
+                ?>
             </div>
 
             <div class="footerMain">
