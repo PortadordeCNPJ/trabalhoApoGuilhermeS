@@ -7,7 +7,6 @@ require "../bootstrap.php";
 $pagina = $_GET['pagina'] ?? 'home';
 
 // Páginas disponíveis
-
 if (empty($_SESSION)) {
     $paginas = [
         //Views
@@ -57,9 +56,21 @@ if (empty($_SESSION)) {
     }
 }
 
-// Verifica se a página existe
+// Cadastro de produtos
+if ($pagina === 'produtoController') {
+    \app\controllers\ProdutoController::cadastrar();
+    exit;
+}
 
+// ====================================
+// CARREGAMENTO DOS DADOS
+// ====================================
 
+$produtos = [];
+
+if ($pagina === 'cadastro_produtos') {
+    $produtos = \app\controllers\ProdutoController::index();
+}
 
 // Caminho completo da página
 $arquivo = __DIR__ . '/../app/' . $paginas[$pagina];
@@ -103,16 +114,7 @@ $arquivo = __DIR__ . '/../app/' . $paginas[$pagina];
             <div class="containerMain">
 
                 <?php
-
                 require $arquivo;
-
-                if ($arquivo === 'C:\xampp\htdocs\trabalhoApoGuilhermeS\public/../app/controllers/ProdutoController.php') {
-                    \app\controllers\ProdutoController::cadastrar();
-                }
-
-                if ($arquivo === 'C:\xampp\htdocs\trabalhoApoGuilhermeS\public/../app/views/admin/produtos.php') {
-                    \app\controllers\ProdutoController::index();
-                }
                 ?>
             </div>
 

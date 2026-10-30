@@ -15,11 +15,13 @@
             <a class="nav-link active" aria-current="page" href="index.php?pagina=home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.php?pagina=produtos">Produtos</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="index.php?pagina=transporte">Transporte</a>
           </li>
+          <?php if ($_SESSION['tipo_usuario'] === "admin") :?>
+            <li class="nav-item">
+            <a class="nav-link" href="index.php?pagina=cadastro_produtos">Produtos</a>
+          </li>
+            <?php endif;?>
           <li class="nav-item">
             <button class="nav-link" type="button" data-bs-toggle="menu" aria-expanded="false">
               Menu link

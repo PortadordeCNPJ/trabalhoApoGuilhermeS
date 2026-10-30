@@ -7,14 +7,15 @@ use app\models\Produto;
 
 class ProdutoController
 {
-    public static function index(): void
+    // Apenas busca os produtos e devolve os dados.
+    public static function index(): array
     {
         $pdo = Connection::connect();
-        $produtos = Produto::listar($pdo);
 
-        require dirname(__DIR__) . '/views/admin/produtos.php';
+        return Produto::listar($pdo);
     }
 
+    // Processa o formulário de cadastro.
     public static function cadastrar(): void
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -35,11 +36,11 @@ class ProdutoController
         }
 
         if (!is_numeric($peso) || (float) $peso <= 0) {
-            $erros[] = 'O peso deve ser maior que zero.';
+            $erros[] = 'Informe um peso válido.';
         }
 
         if (!is_numeric($valor) || (float) $valor < 0) {
-            $erros[] = 'Informe um valor válido para o produto.';
+            $erros[] = 'Informe um valor válido.';
         }
 
         $quantidadeValida = filter_var(
@@ -48,18 +49,11 @@ class ProdutoController
         );
 
         if ($quantidadeValida === false || $quantidadeValida < 0) {
-            $erros[] = 'A quantidade deve ser um inteiro maior ou igual a zero.';
+            $erros[] = 'Informe uma quantidade válida.';
         }
 
-        if ($erros) {
+        if (!empty($erros)) {
             $_SESSION['erros_produto'] = $erros;
-            $_SESSION['dados_produto'] = [
-                'nome' => $nome,
-                'descricao' => $descricao,
-                'peso' => $peso,
-                'valor' => $valor,
-                'quantidade_estoque' => $quantidade
-            ];
 
             header('Location: index.php?pagina=cadastro_produtos');
             exit;
@@ -83,7 +77,7 @@ class ProdutoController
             error_log($e->getMessage());
 
             $_SESSION['erros_produto'] = [
-                'Não foi possível cadastrar o produto. Verifique os dados e tente novamente.'
+                'Não foi possível cadastrar o produto.'
             ];
         }
 
