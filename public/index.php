@@ -23,7 +23,6 @@ if (empty($_SESSION)) {
             'produtos' => 'views/produtos.php',
             'fretes' => 'views/fretes.php',
             'transporte' => 'views/transporte.php',
-            'criarUsuarios' => 'views/criarUsuarios.php',
         ];
     } else {
         $paginas = [
@@ -31,9 +30,10 @@ if (empty($_SESSION)) {
             'home' => 'views/home.php',
             'fretes' => 'views/fretes.php',
             'transporte' => 'views/transporte.php',
-            'criarUsuarios' => 'views/criarUsuarios.php',
+            'criarUsuarios' => 'views/admin/criarUsuarios.php',
             'admin' => 'views/admin/adminHome.php',
             'cadastro_produtos' => 'views/admin/produtos.php',
+            'cadastrarUsuarios' => 'controllers/UsuarioController.php',
             'produtoController' => 'controllers/ProdutoController.php',
         ];
     }

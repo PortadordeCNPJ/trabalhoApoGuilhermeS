@@ -21,6 +21,9 @@
             <li class="nav-item">
             <a class="nav-link" href="index.php?pagina=cadastro_produtos">Produtos</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?pagina=criarUsuarios">Cadastrar usuário</a>
+          </li>
             <?php endif;?>
           <li class="nav-item">
             <button class="nav-link" type="button" data-bs-toggle="menu" aria-expanded="false">
