@@ -14,17 +14,17 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="index.php?pagina=home">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.php?pagina=transporte">Transporte</a>
-          </li>
-          <?php if ($_SESSION['tipo_usuario'] === "admin") :?>
+          <?php if ($_SESSION['tipo_usuario'] === "admin") : ?>
             <li class="nav-item">
-            <a class="nav-link" href="index.php?pagina=cadastroProdutos">Produtos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.php?pagina=criarUsuarios">Cadastrar usuário</a>
-          </li>
-            <?php endif;?>
+              <a class="nav-link" href="index.php?pagina=transportador">Transporte</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.php?pagina=cadastroProdutos">Produtos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.php?pagina=criarUsuarios">Cadastrar usuário</a>
+            </li>
+          <?php endif; ?>
           <li class="nav-item">
             <button class="nav-link" type="button" data-bs-toggle="menu" aria-expanded="false">
               Menu link
@@ -39,7 +39,7 @@
       </div>
     </dialog>
     <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
       <button class="btn-outline theme-success" type="submit">Search</button>
     </form>
   </div>

@@ -1,27 +1,27 @@
 <?php if (!empty($_SESSION['sucesso_usuario'])): ?>
 
-    <div class="tt-alert-success">
-        <?= htmlspecialchars($_SESSION['sucesso_usuario']) ?>
-    </div>
+  <div class="tt-alert-success">
+    <?= htmlspecialchars($_SESSION['sucesso_usuario']) ?>
+  </div>
 
-    <?php unset($_SESSION['sucesso_usuario']); ?>
+  <?php unset($_SESSION['sucesso_usuario']); ?>
 
 <?php endif; ?>
 
 
 <?php if (!empty($_SESSION['erros_usuario'])): ?>
 
-    <div class="tt-alert-error">
+  <div class="tt-alert-error">
 
-        <?php foreach ($_SESSION['erros_usuario'] as $erro): ?>
+    <?php foreach ($_SESSION['erros_usuario'] as $erro): ?>
 
-            <p><?= htmlspecialchars($erro) ?></p>
+      <p><?= htmlspecialchars($erro) ?></p>
 
-        <?php endforeach; ?>
+    <?php endforeach; ?>
 
-    </div>
+  </div>
 
-    <?php unset($_SESSION['erros_usuario']); ?>
+  <?php unset($_SESSION['erros_usuario']); ?>
 
 <?php endif; ?>
 
@@ -91,7 +91,6 @@
         class="tt-user-register__select"
         required>
         <option value="" selected disabled>Selecione o tipo de usuário</option>
-        <option value="motorista">Motorista</option>
         <option value="usuario">Usuário comum</option>
       </select>
     </div>
@@ -107,5 +106,93 @@
     </div>
 
   </form>
+
+
+  <section class="tt-users-list">
+
+    <div class="tt-users-list__header">
+      <div>
+        <span class="tt-users-list__eyebrow">
+          TRANSPTECH / ADMINISTRAÇÃO
+        </span>
+
+        <h2>Usuários cadastrados</h2>
+
+        <p>Gerencie e consulte os usuários do sistema.</p>
+      </div>
+
+      <span class="tt-users-list__count">
+        <?= count($usuarios) ?> usuário(s)
+      </span>
+    </div>
+
+    <div class="tt-users-list__table-wrapper">
+
+      <table class="tt-users-list__table">
+
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Tipo</th>
+            <th>Data de cadastro</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <?php if (empty($usuarios)): ?>
+
+            <tr>
+              <td colspan="5" class="tt-users-list__empty">
+                Nenhum usuário cadastrado.
+              </td>
+            </tr>
+
+          <?php else: ?>
+
+            <?php foreach ($usuarios as $usuario): ?>
+
+              <tr>
+                <td>
+                  <?= htmlspecialchars((string) $usuario['id_usuario']) ?>
+                </td>
+
+                <td>
+                  <strong>
+                    <?= htmlspecialchars($usuario['nome']) ?>
+                  </strong>
+                </td>
+
+                <td>
+                  <?= htmlspecialchars($usuario['email']) ?>
+                </td>
+
+                <td>
+                  <span class="tt-users-list__badge">
+                    <?= htmlspecialchars($usuario['tipo_usuario']) ?>
+                  </span>
+                </td>
+
+                <td>
+                  <?= !empty($usuario['criado_em'])
+                    ? date('d/m/Y H:i', strtotime($usuario['criado_em']))
+                    : 'Não informado' ?>
+                </td>
+              </tr>
+
+            <?php endforeach; ?>
+
+          <?php endif; ?>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </section>
+
 
 </div>

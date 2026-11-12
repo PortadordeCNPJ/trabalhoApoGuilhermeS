@@ -973,3 +973,409 @@ a:focus-visible {
 .tt-user-register__select:invalid {
     color: #68717d;
 }
+
+
+/* =====================================================
+   TRANSPTECH — CADASTRO DE TRANSPORTADORES
+   ===================================================== */
+
+.tt-transport {
+    --tt-green: #39ff88;
+    --tt-green-hover: #72ffaa;
+    --tt-bg: #101215;
+    --tt-card: #1a1f23;
+    --tt-input: #111619;
+    --tt-text: #f4f7f5;
+    --tt-muted: #9ca9a1;
+    --tt-border: rgba(255,255,255,.09);
+
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 45px 25px 35px;
+    color: var(--tt-text);
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+.tt-transport * {
+    box-sizing: border-box;
+}
+
+/* CABEÇALHO */
+
+.tt-transport__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.tt-transport__eyebrow {
+    color: var(--tt-green);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.tt-transport__header h1 {
+    margin: 12px 0;
+    color: var(--tt-text);
+    font-size: clamp(27px, 4vw, 39px);
+    font-weight: 850;
+    letter-spacing: -1.4px;
+}
+
+.tt-transport__header p {
+    max-width: 600px;
+    margin: 0;
+    color: var(--tt-muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.tt-transport__header-icon {
+    width: 75px;
+    height: 75px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(57,255,136,.25);
+    border-radius: 19px;
+    background: rgba(57,255,136,.08);
+    font-size: 34px;
+    box-shadow: 0 0 35px rgba(57,255,136,.06);
+}
+
+/* CARD */
+
+.tt-transport__card {
+    overflow: hidden;
+    border: 1px solid var(--tt-border);
+    border-radius: 18px;
+    background:
+        linear-gradient(145deg, #1d2326, #151a1d);
+    box-shadow: 0 20px 60px rgba(0,0,0,.2);
+}
+
+.tt-transport__card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 27px 32px;
+    border-bottom: 1px solid var(--tt-border);
+}
+
+.tt-transport__card-header h2 {
+    margin: 0 0 8px;
+    color: white;
+    font-size: 19px;
+}
+
+.tt-transport__card-header p {
+    margin: 0;
+    color: var(--tt-muted);
+    font-size: 12px;
+}
+
+.tt-transport__required {
+    color: var(--tt-green);
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+/* FORMULÁRIO */
+
+.tt-transport__form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 23px;
+    padding: 32px;
+}
+
+.tt-transport__section-title {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-top: 10px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--tt-border);
+    color: white;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.tt-transport__section-title span {
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+    color: var(--tt-green);
+    background: rgba(57,255,136,.1);
+    font-size: 11px;
+}
+
+.tt-transport__field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+}
+
+.tt-transport__field--full {
+    grid-column: 1 / -1;
+}
+
+.tt-transport__field label {
+    color: #dce5df;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.tt-transport__field input,
+.tt-transport__field select {
+    width: 100%;
+    min-height: 49px;
+    padding: 0 15px;
+    outline: none;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 9px;
+    background: var(--tt-input);
+    color: white;
+    font-family: inherit;
+    font-size: 13px;
+    transition: .25s ease;
+}
+
+.tt-transport__field input::placeholder {
+    color: #65716a;
+}
+
+.tt-transport__field select {
+    cursor: pointer;
+}
+
+.tt-transport__field select option {
+    background: #171d19;
+    color: white;
+}
+
+.tt-transport__field input:focus,
+.tt-transport__field select:focus {
+    border-color: var(--tt-green);
+    box-shadow: 0 0 0 3px rgba(57,255,136,.09);
+}
+
+.tt-transport__field input:hover,
+.tt-transport__field select:hover {
+    border-color: rgba(57,255,136,.4);
+}
+
+/* STATUS */
+
+.tt-transport__toggle {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 19px;
+    border: 1px solid rgba(57,255,136,.17);
+    border-radius: 11px;
+    background: rgba(57,255,136,.045);
+    cursor: pointer;
+}
+
+.tt-transport__toggle input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.tt-transport__toggle-box {
+    width: 21px;
+    height: 21px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border: 1px solid #59655e;
+    border-radius: 6px;
+    background: #111619;
+    transition: .2s ease;
+}
+
+.tt-transport__toggle input:checked + .tt-transport__toggle-box {
+    border-color: var(--tt-green);
+    background: var(--tt-green);
+}
+
+.tt-transport__toggle input:checked + .tt-transport__toggle-box::after {
+    content: "✓";
+    color: #101713;
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.tt-transport__toggle input:focus-visible + .tt-transport__toggle-box {
+    outline: 2px solid white;
+    outline-offset: 3px;
+}
+
+.tt-transport__toggle-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.tt-transport__toggle-text strong {
+    color: white;
+    font-size: 13px;
+}
+
+.tt-transport__toggle-text small {
+    color: var(--tt-muted);
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+/* BOTÕES */
+
+.tt-transport__actions {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 13px;
+    margin-top: 10px;
+    padding-top: 25px;
+    border-top: 1px solid var(--tt-border);
+}
+
+.tt-transport__btn-reset,
+.tt-transport__btn-submit {
+    min-height: 48px;
+    padding: 0 22px;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+.tt-transport__btn-reset {
+    border: 1px solid var(--tt-border);
+    background: transparent;
+    color: #c3cdc6;
+}
+
+.tt-transport__btn-reset:hover {
+    border-color: white;
+    color: white;
+}
+
+.tt-transport__btn-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    border: none;
+    background: var(--tt-green);
+    color: #07140c;
+    box-shadow: 0 7px 20px rgba(57,255,136,.12);
+}
+
+.tt-transport__btn-submit:hover {
+    background: var(--tt-green-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(57,255,136,.2);
+}
+
+.tt-transport__btn-submit span {
+    font-size: 17px;
+}
+
+/* MENSAGENS */
+
+.tt-transport__alert {
+    margin-bottom: 22px;
+    padding: 17px 20px;
+    border-radius: 10px;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.tt-transport__alert ul {
+    margin: 8px 0 0;
+    padding-left: 20px;
+}
+
+.tt-transport__alert--success {
+    border: 1px solid rgba(57,255,136,.3);
+    background: rgba(57,255,136,.08);
+    color: #9dffbf;
+}
+
+.tt-transport__alert--error {
+    border: 1px solid rgba(255,100,100,.25);
+    background: rgba(255,80,80,.07);
+    color: #ffaaaa;
+}
+
+/* RODAPÉ */
+
+.tt-transport__footer-note {
+    margin-top: 23px;
+    color: #68746c;
+    font-size: 11px;
+    text-align: center;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 650px) {
+
+    .tt-transport {
+        padding: 30px 15px;
+    }
+
+    .tt-transport__header {
+        align-items: flex-start;
+    }
+
+    .tt-transport__header-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 25px;
+    }
+
+    .tt-transport__card-header {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 23px;
+    }
+
+    .tt-transport__form {
+        grid-template-columns: 1fr;
+        padding: 23px;
+        gap: 20px;
+    }
+
+    .tt-transport__field--full,
+    .tt-transport__section-title,
+    .tt-transport__toggle,
+    .tt-transport__actions {
+        grid-column: 1;
+    }
+
+    .tt-transport__actions {
+        flex-direction: column-reverse;
+    }
+
+    .tt-transport__btn-reset,
+    .tt-transport__btn-submit {
+        width: 100%;
+        justify-content: center;
+    }
+}

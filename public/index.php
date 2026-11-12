@@ -33,8 +33,10 @@ if (empty($_SESSION)) {
             'criarUsuarios' => 'views/admin/criarUsuarios.php',
             'admin' => 'views/admin/adminHome.php',
             'cadastroProdutos' => 'views/admin/produtos.php',
+            'transportador' => 'views/admin/transportadores.php',
             'usuarioController' => 'controllers/UsuarioController.php',
             'produtoController' => 'controllers/ProdutoController.php',
+            'transportadorController' => 'controllers/TransportadorController.php',
         ];
     }
 }
@@ -56,6 +58,12 @@ if (empty($_SESSION)) {
     }
 }
 
+// Processamento do formulário antes de qualquer saída HTML.
+if ($pagina === 'transportadorController') {
+    \app\controllers\TransportadorController::cadastrar();
+    exit;
+}
+
 // Cadastro de produtos
 if ($pagina === 'produtoController') {
     \app\controllers\ProdutoController::cadastrar();
@@ -71,6 +79,13 @@ if ($pagina === 'usuarioController') {
 // ====================================
 // CARREGAMENTO DOS DADOS
 // ====================================
+
+$usuarios = [];
+
+if ($pagina === 'criarUsuarios') {
+    $usuarios = \app\controllers\UsuarioController::listarUsuarios();
+}
+
 
 $produtos = [];
 
@@ -95,6 +110,7 @@ $arquivo = __DIR__ . '/../app/' . $paginas[$pagina];
     <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="./assets/css/transptech.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/produtos.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/home.css">
     <title>TranspTech</title>
 </head>
 

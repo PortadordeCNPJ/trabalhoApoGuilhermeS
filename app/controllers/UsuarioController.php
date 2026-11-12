@@ -8,6 +8,16 @@ use PDOException;
 
 class UsuarioController
 {
+
+
+    public static function listarUsuarios(): array
+    {
+        //Funçao que vai listar os usuários
+        $pdo = Connection::connect();
+
+        return Usuario::listar($pdo);
+    }
+
     public static function cadastrarCliente(): void
     {
         // Verifica se o formulário foi enviado por POST
@@ -37,7 +47,7 @@ class UsuarioController
             $erros[] = 'A senha deve possuir pelo menos 8 caracteres.';
         }
 
-        $tiposPermitidos = ['motorista', 'usuario'];
+        $tiposPermitidos = ['usuario'];
 
         if (!in_array($tipoUsuario, $tiposPermitidos, true)) {
             $erros[] = 'Tipo de usuário inválido';

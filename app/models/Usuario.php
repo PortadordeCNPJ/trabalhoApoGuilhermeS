@@ -41,4 +41,21 @@ class Usuario
 
         return $smt->fetch();
     }
+
+
+    public static function listar(PDO $pdo): array
+    {
+        $sql = "SELECT
+                id_usuario,
+                nome,
+                email,
+                tipo_usuario,
+                criado_em
+            FROM usuarios
+            ORDER BY id_usuario DESC";
+
+        $stmt = $pdo->query($sql);
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
