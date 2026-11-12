@@ -19,7 +19,7 @@ class ProdutoController
     public static function cadastrar(): void
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            header('Location: index.php?pagina=cadastro_produtos');
+            header('Location: index.php?pagina=cadastroProdutos');
             exit;
         }
 
@@ -55,7 +55,7 @@ class ProdutoController
         if (!empty($erros)) {
             $_SESSION['erros_produto'] = $erros;
 
-            header('Location: index.php?pagina=cadastro_produtos');
+            header('Location: index.php?pagina=cadastroProdutos');
             exit;
         }
 
@@ -81,7 +81,7 @@ class ProdutoController
             ];
         }
 
-        header('Location: index.php?pagina=cadastro_produtos');
+        header('Location: index.php?pagina=cadastroProdutos');
         exit;
     }
 }

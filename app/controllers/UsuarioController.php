@@ -20,6 +20,7 @@ class UsuarioController
         $nome = trim($_POST['nome'] ?? '');
         $email = trim($_POST['email'] ?? '');
         $senha = md5($_POST['senha']) ?? '';
+        $tipoUsuario = $_POST['tipo_usuario'] ?? '';
 
         // Validação dos campos
         $erros = [];
@@ -34,6 +35,12 @@ class UsuarioController
 
         if (strlen($senha) < 8) {
             $erros[] = 'A senha deve possuir pelo menos 8 caracteres.';
+        }
+
+        $tiposPermitidos = ['motorista', 'usuario'];
+
+        if (!in_array($tipoUsuario, $tiposPermitidos, true)) {
+            $erros[] = 'Tipo de usuário inválido';
         }
 
         // Se houver erros, retorna ao formulário
@@ -54,12 +61,12 @@ class UsuarioController
                 $pdo,
                 $nome,
                 $email,
-                $senha
+                $senha,
+                $tipoUsuario
             );
 
             $_SESSION['sucesso_usuario'] =
                 'Usuário cadastrado com sucesso!';
-
         } catch (PDOException $e) {
 
             error_log($e->getMessage());

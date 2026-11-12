@@ -1,3 +1,30 @@
+<?php if (!empty($_SESSION['sucesso_usuario'])): ?>
+
+    <div class="tt-alert-success">
+        <?= htmlspecialchars($_SESSION['sucesso_usuario']) ?>
+    </div>
+
+    <?php unset($_SESSION['sucesso_usuario']); ?>
+
+<?php endif; ?>
+
+
+<?php if (!empty($_SESSION['erros_usuario'])): ?>
+
+    <div class="tt-alert-error">
+
+        <?php foreach ($_SESSION['erros_usuario'] as $erro): ?>
+
+            <p><?= htmlspecialchars($erro) ?></p>
+
+        <?php endforeach; ?>
+
+    </div>
+
+    <?php unset($_SESSION['erros_usuario']); ?>
+
+<?php endif; ?>
+
 <div class="tt-user-register">
 
   <div class="tt-user-register__header">
@@ -14,7 +41,7 @@
 
   <form
     class="tt-user-register__form"
-    action="index.php?pagina=cadastrarUsuarios"
+    action="index.php?pagina=usuarioController"
     method="POST">
 
     <div class="tt-user-register__field">

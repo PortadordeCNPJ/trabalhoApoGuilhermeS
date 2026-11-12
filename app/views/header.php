@@ -19,7 +19,7 @@
           </li>
           <?php if ($_SESSION['tipo_usuario'] === "admin") :?>
             <li class="nav-item">
-            <a class="nav-link" href="index.php?pagina=cadastro_produtos">Produtos</a>
+            <a class="nav-link" href="index.php?pagina=cadastroProdutos">Produtos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="index.php?pagina=criarUsuarios">Cadastrar usuário</a>

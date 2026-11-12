@@ -32,8 +32,8 @@ if (empty($_SESSION)) {
             'transporte' => 'views/transporte.php',
             'criarUsuarios' => 'views/admin/criarUsuarios.php',
             'admin' => 'views/admin/adminHome.php',
-            'cadastro_produtos' => 'views/admin/produtos.php',
-            'cadastrarUsuarios' => 'controllers/UsuarioController.php',
+            'cadastroProdutos' => 'views/admin/produtos.php',
+            'usuarioController' => 'controllers/UsuarioController.php',
             'produtoController' => 'controllers/ProdutoController.php',
         ];
     }
@@ -62,13 +62,19 @@ if ($pagina === 'produtoController') {
     exit;
 }
 
+//cadastro de usuarios
+if ($pagina === 'usuarioController') {
+    \app\controllers\UsuarioController::cadastrarCliente();
+    exit;
+}
+
 // ====================================
 // CARREGAMENTO DOS DADOS
 // ====================================
 
 $produtos = [];
 
-if ($pagina === 'cadastro_produtos') {
+if ($pagina === 'cadastroProdutos') {
     $produtos = \app\controllers\ProdutoController::index();
 }
 

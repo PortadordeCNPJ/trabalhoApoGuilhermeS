@@ -10,7 +10,8 @@ class Usuario
         PDO $pdo,
         string $nome,
         string $email,
-        string $senha
+        string $senha,
+        string $tipo_usuario
     ): bool {
         $sql = "INSERT INTO usuarios (nome, email, senha, tipo_usuario)
                 VALUES (:nome, :email, :senha, :tipo_usuario)";
@@ -21,7 +22,7 @@ class Usuario
             ':nome' => $nome,
             ':email' => $email,
             ':senha' => md5($senha),
-            ':tipo_usuario' => 'usuario'
+            ':tipo_usuario' => $tipo_usuario
         ]);
     }
 
