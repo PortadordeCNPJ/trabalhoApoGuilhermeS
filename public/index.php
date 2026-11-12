@@ -34,9 +34,11 @@ if (empty($_SESSION)) {
             'admin' => 'views/admin/adminHome.php',
             'cadastroProdutos' => 'views/admin/produtos.php',
             'transportador' => 'views/admin/transportadores.php',
+            'endereco' => 'views/admin/endereco.php',
             'usuarioController' => 'controllers/UsuarioController.php',
             'produtoController' => 'controllers/ProdutoController.php',
             'transportadorController' => 'controllers/TransportadorController.php',
+            'enderecoController' => 'controllers/EnderecoController.php',
         ];
     }
 }
