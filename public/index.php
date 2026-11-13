@@ -60,6 +60,12 @@ if (empty($_SESSION)) {
     }
 }
 
+// Carrega o formulário de cadastro de enderecos 
+if ($pagina === 'enderecoController') {
+    \app\controllers\EnderecoController::cadastrar();
+    exit;
+}
+
 // Processamento do formulário antes de qualquer saída HTML.
 if ($pagina === 'transportadorController') {
     \app\controllers\TransportadorController::cadastrar();

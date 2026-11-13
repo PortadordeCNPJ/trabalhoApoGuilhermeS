@@ -16,13 +16,16 @@
           </li>
           <?php if ($_SESSION['tipo_usuario'] === "admin") : ?>
             <li class="nav-item">
-              <a class="nav-link" href="index.php?pagina=transportador">Transporte</a>
+              <a class="nav-link" href="index.php?pagina=transportador">Cadastrar Transportadores</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.php?pagina=cadastroProdutos">Produtos</a>
+              <a class="nav-link" href="index.php?pagina=cadastroProdutos">Cadastrar Produtos</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="index.php?pagina=criarUsuarios">Cadastrar usuário</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.php?pagina=endereco">Cadastrar Endereço</a>
             </li>
           <?php endif; ?>
           <li class="nav-item">

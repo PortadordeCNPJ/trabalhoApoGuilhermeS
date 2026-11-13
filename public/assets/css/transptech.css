@@ -1379,3 +1379,349 @@ a:focus-visible {
         justify-content: center;
     }
 }
+
+
+/* =====================================================
+   TRANSPTECH — CADASTRO DE ENDEREÇOS
+   Grafite + Verde Neon
+   ===================================================== */
+
+.tt-address {
+    --tt-green: #39ff88;
+    --tt-green-hover: #72ffaa;
+    --tt-card: #1a1f23;
+    --tt-input: #111619;
+    --tt-text: #f4f7f5;
+    --tt-muted: #9ca9a1;
+    --tt-border: rgba(255,255,255,.09);
+
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 45px 25px 35px;
+    color: var(--tt-text);
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+.tt-address * {
+    box-sizing: border-box;
+}
+
+/* CABEÇALHO */
+
+.tt-address__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.tt-address__eyebrow {
+    color: var(--tt-green);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.tt-address__header h1 {
+    margin: 12px 0;
+    color: var(--tt-text);
+    font-size: clamp(27px, 4vw, 39px);
+    font-weight: 850;
+    letter-spacing: -1.4px;
+}
+
+.tt-address__header p {
+    max-width: 600px;
+    margin: 0;
+    color: var(--tt-muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.tt-address__header-icon {
+    width: 75px;
+    height: 75px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(57,255,136,.25);
+    border-radius: 19px;
+    background: rgba(57,255,136,.08);
+    font-size: 34px;
+    box-shadow: 0 0 35px rgba(57,255,136,.06);
+}
+
+/* CARD */
+
+.tt-address__card {
+    overflow: hidden;
+    border: 1px solid var(--tt-border);
+    border-radius: 18px;
+    background: linear-gradient(145deg, #1d2326, #151a1d);
+    box-shadow: 0 20px 60px rgba(0,0,0,.2);
+}
+
+.tt-address__card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 27px 32px;
+    border-bottom: 1px solid var(--tt-border);
+}
+
+.tt-address__card-header h2 {
+    margin: 0 0 8px;
+    color: white;
+    font-size: 19px;
+}
+
+.tt-address__card-header p {
+    margin: 0;
+    color: var(--tt-muted);
+    font-size: 12px;
+}
+
+.tt-address__required {
+    color: var(--tt-green);
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+/* FORMULÁRIO */
+
+.tt-address__form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 23px;
+    padding: 32px;
+}
+
+.tt-address__section-title {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-top: 10px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--tt-border);
+    color: white;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.tt-address__section-title span {
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+    color: var(--tt-green);
+    background: rgba(57,255,136,.1);
+    font-size: 11px;
+}
+
+/* CAMPOS */
+
+.tt-address__field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+}
+
+.tt-address__field--full {
+    grid-column: 1 / -1;
+}
+
+.tt-address__field label {
+    color: #dce5df;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.tt-address__field input,
+.tt-address__field select {
+    width: 100%;
+    min-height: 49px;
+    padding: 0 15px;
+    outline: none;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 9px;
+    background: var(--tt-input);
+    color: white;
+    font-family: inherit;
+    font-size: 13px;
+    transition: .25s ease;
+}
+
+.tt-address__field input::placeholder {
+    color: #65716a;
+}
+
+.tt-address__field select {
+    cursor: pointer;
+}
+
+.tt-address__field select option {
+    background: #171d19;
+    color: white;
+}
+
+.tt-address__field input:focus,
+.tt-address__field select:focus {
+    border-color: var(--tt-green);
+    box-shadow: 0 0 0 3px rgba(57,255,136,.09);
+}
+
+.tt-address__field input:hover,
+.tt-address__field select:hover {
+    border-color: rgba(57,255,136,.4);
+}
+
+.tt-address__field small {
+    color: #849188;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+/* BOTÕES */
+
+.tt-address__actions {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 13px;
+    margin-top: 10px;
+    padding-top: 25px;
+    border-top: 1px solid var(--tt-border);
+}
+
+.tt-address__btn-reset,
+.tt-address__btn-submit {
+    min-height: 48px;
+    padding: 0 22px;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+.tt-address__btn-reset {
+    border: 1px solid var(--tt-border);
+    background: transparent;
+    color: #c3cdc6;
+}
+
+.tt-address__btn-reset:hover {
+    border-color: white;
+    color: white;
+}
+
+.tt-address__btn-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    border: none;
+    background: var(--tt-green);
+    color: #07140c;
+    box-shadow: 0 7px 20px rgba(57,255,136,.12);
+}
+
+.tt-address__btn-submit:hover {
+    background: var(--tt-green-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(57,255,136,.2);
+}
+
+.tt-address__btn-submit span {
+    font-size: 17px;
+}
+
+/* ALERTAS */
+
+.tt-address__alert {
+    margin-bottom: 22px;
+    padding: 17px 20px;
+    border-radius: 10px;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.tt-address__alert ul {
+    margin: 8px 0 0;
+    padding-left: 20px;
+}
+
+.tt-address__alert--success {
+    border: 1px solid rgba(57,255,136,.3);
+    background: rgba(57,255,136,.08);
+    color: #9dffbf;
+}
+
+.tt-address__alert--error {
+    border: 1px solid rgba(255,100,100,.25);
+    background: rgba(255,80,80,.07);
+    color: #ffaaaa;
+}
+
+/* RODAPÉ */
+
+.tt-address__footer-note {
+    margin-top: 23px;
+    color: #68746c;
+    font-size: 11px;
+    text-align: center;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 650px) {
+
+    .tt-address {
+        padding: 30px 15px;
+    }
+
+    .tt-address__header {
+        align-items: flex-start;
+    }
+
+    .tt-address__header-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 25px;
+    }
+
+    .tt-address__card-header {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 23px;
+    }
+
+    .tt-address__form {
+        grid-template-columns: 1fr;
+        padding: 23px;
+        gap: 20px;
+    }
+
+    .tt-address__field--full,
+    .tt-address__section-title,
+    .tt-address__actions {
+        grid-column: 1;
+    }
+
+    .tt-address__actions {
+        flex-direction: column-reverse;
+    }
+
+    .tt-address__btn-reset,
+    .tt-address__btn-submit {
+        width: 100%;
+        justify-content: center;
+    }
+}
