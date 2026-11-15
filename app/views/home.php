@@ -41,7 +41,7 @@ $indicadores = [
             </p>
 
             <div class="tt-home__hero-actions">
-                <a href="index.php?pagina=fretes"
+                <a href="#"
                    class="tt-home__button tt-home__button--primary">
                     Conhecer nossos serviços
                     <span>↗</span>
@@ -186,7 +186,7 @@ $indicadores = [
                     Movimentação de mercadorias com planejamento,
                     segurança e eficiência.
                 </p>
-                <a href="index.php?pagina=fretes">Saiba mais →</a>
+                <a href="#">Saiba mais →</a>
             </article>
 
             <article class="tt-home__service-card">
@@ -196,7 +196,7 @@ $indicadores = [
                     Organização e controle das operações
                     em um único ambiente.
                 </p>
-                <a href="index.php?pagina=fretes">Saiba mais →</a>
+                <a href="#">Saiba mais →</a>
             </article>
 
             <article class="tt-home__service-card">
@@ -206,7 +206,7 @@ $indicadores = [
                     Planejamento de rotas e conexão entre
                     origem e destino.
                 </p>
-                <a href="index.php?pagina=transporte">Saiba mais →</a>
+                <a href="#">Saiba mais →</a>
             </article>
 
             <article class="tt-home__service-card">
@@ -216,7 +216,7 @@ $indicadores = [
                     Monitoramento das etapas para proporcionar
                     maior transparência operacional.
                 </p>
-                <a href="index.php?pagina=fretes">Saiba mais →</a>
+                <a href="#">Saiba mais →</a>
             </article>
 
         </div>
@@ -250,7 +250,7 @@ $indicadores = [
                 <li>Mais transparência nas operações</li>
             </ul>
 
-            <a href="index.php?pagina=transporte"
+            <a href="#"
                class="tt-home__button tt-home__button--primary">
                 Conhecer nossa operação ↗
             </a>
@@ -284,7 +284,7 @@ $indicadores = [
             para acompanhar o crescimento da sua empresa.
         </p>
 
-        <a href="index.php?pagina=fretes"
+        <a href="#"
            class="tt-home__button tt-home__button--primary">
             Acesse nossos serviços ↗
         </a>

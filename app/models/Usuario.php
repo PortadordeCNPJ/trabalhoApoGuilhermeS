@@ -21,7 +21,7 @@ class Usuario
         return $stmt->execute([
             ':nome' => $nome,
             ':email' => $email,
-            ':senha' => md5($senha),
+            ':senha' => $senha,
             ':tipo_usuario' => $tipo_usuario
         ]);
     }
