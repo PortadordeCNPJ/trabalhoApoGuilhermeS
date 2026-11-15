@@ -2,9 +2,11 @@
 
 namespace app\controllers;
 
+use DateTimeImmutable;
 use app\models\Connection;
 use app\models\Frete;
 use PDOException;
+use PDO;
 
 class FreteController
 {
@@ -83,8 +85,10 @@ class FreteController
                     FILTER_VALIDATE_INT
                 );
 
-                if (!$idProduto || $idProduto <= 0 ||
-                    !$quantidade || $quantidade <= 0) {
+                if (
+                    !$idProduto || $idProduto <= 0 ||
+                    !$quantidade || $quantidade <= 0
+                ) {
                     $erros[] = 'Confira os produtos e suas quantidades.';
                     continue;
                 }
@@ -137,17 +141,14 @@ class FreteController
 
             $_SESSION['sucesso_frete'] =
                 "Frete #{$idFrete} cadastrado com sucesso!";
-
         } catch (\RuntimeException $e) {
             $_SESSION['erros_frete'] = [$e->getMessage()];
-
         } catch (PDOException $e) {
             error_log($e->getMessage());
 
             $_SESSION['erros_frete'] = [
                 'Erro no banco de dados ao cadastrar o frete.'
             ];
-
         } catch (\Throwable $e) {
             error_log($e->getMessage());
 
@@ -158,5 +159,159 @@ class FreteController
 
         header('Location: index.php?pagina=frete');
         exit;
+    }
+
+
+    public static function exportarRelatorio(): void
+    {
+        $data = $_GET['data'] ?? '';
+
+        // Validação da data recebida
+        $dataValidada = DateTimeImmutable::createFromFormat('!Y-m-d', $data);
+        $errosData = DateTimeImmutable::getLastErrors();
+
+        if (
+            !$dataValidada ||
+            ($errosData !== false &&
+                ($errosData['warning_count'] > 0 || $errosData['error_count'] > 0)) ||
+            $dataValidada->format('Y-m-d') !== $data
+        ) {
+            http_response_code(400);
+            header('Content-Type: application/json; charset=utf-8');
+
+            echo json_encode([
+                'mensagem' => 'Data inválida.'
+            ]);
+
+            return;
+        }
+
+        try {
+
+            $pdo = Connection::connect();
+
+            $sql = "SELECT
+                    f.id_frete,
+                    t.nome AS transportador,
+                    origem.identificacao AS origem,
+                    destino.identificacao AS destino,
+                    f.data_frete,
+                    f.valor_frete,
+                    f.status,
+                    f.observacoes,
+                    GROUP_CONCAT(
+                        CONCAT(p.nome, ' (Quantidade: ', fp.quantidade, ')')
+                        ORDER BY p.nome
+                        SEPARATOR ', '
+                    ) AS produtos
+
+                FROM fretes f
+
+                INNER JOIN transportadores t
+                    ON t.id_transportador = f.transportador_id
+
+                INNER JOIN enderecos origem
+                    ON origem.id_endereco = f.endereco_origem_id
+
+                INNER JOIN enderecos destino
+                    ON destino.id_endereco = f.endereco_destino_id
+
+                LEFT JOIN frete_produtos fp
+                    ON fp.frete_id = f.id_frete
+
+                LEFT JOIN produtos p
+                    ON p.id_produto = fp.produto_id
+
+                WHERE f.data_frete >= :inicio
+                  AND f.data_frete < :fim
+
+                GROUP BY
+                    f.id_frete,
+                    t.nome,
+                    origem.identificacao,
+                    destino.identificacao,
+                    f.data_frete,
+                    f.valor_frete,
+                    f.status,
+                    f.observacoes
+
+                ORDER BY f.id_frete ASC";
+
+            $inicio = $dataValidada->format('Y-m-d') . ' 00:00:00';
+            $fim = $dataValidada->modify('+1 day')->format('Y-m-d') . ' 00:00:00';
+
+            $stmt = $pdo->prepare($sql);
+
+            $stmt->execute([
+                ':inicio' => $inicio,
+                ':fim' => $fim
+            ]);
+
+            $fretes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            if (empty($fretes)) {
+                http_response_code(404);
+                header('Content-Type: application/json; charset=utf-8');
+
+                echo json_encode([
+                    'mensagem' => 'Não existem fretes cadastrados nesta data.'
+                ]);
+
+                return;
+            }
+
+            // Prepara o download do CSV
+            $nomeArquivo = 'relatorio-fretes-' . $data . '.csv';
+
+            header('Content-Type: text/csv; charset=UTF-8');
+            header('Content-Disposition: attachment; filename="' . $nomeArquivo . '"');
+
+            // BOM para compatibilidade com Excel
+            echo "\xEF\xBB\xBF";
+
+            $arquivo = fopen('php://output', 'w');
+
+            // Cabeçalho do relatório
+            fputcsv($arquivo, [
+                'ID',
+                'Transportador',
+                'Origem',
+                'Destino',
+                'Produtos',
+                'Data',
+                'Valor do frete',
+                'Status',
+                'Observações'
+            ], ';');
+
+            // Dados dos fretes
+            foreach ($fretes as $frete) {
+
+                fputcsv($arquivo, [
+                    $frete['id_frete'],
+                    $frete['transportador'],
+                    $frete['origem'],
+                    $frete['destino'],
+                    $frete['produtos'] ?? '',
+                    date('d/m/Y', strtotime($frete['data_frete'])),
+                    number_format((float) $frete['valor_frete'], 2, ',', '.'),
+                    $frete['status'],
+                    $frete['observacoes']
+                ], ';');
+            }
+
+            fclose($arquivo);
+            exit;
+        } catch (\Throwable $e) {
+
+            error_log($e->getMessage());
+
+            http_response_code(500);
+            header('Content-Type: application/json; charset=utf-8');
+
+            echo json_encode([
+                'mensagem' => 'Ocorreu um erro ao gerar o relatório.'
+            ]);
+        }
     }
 }

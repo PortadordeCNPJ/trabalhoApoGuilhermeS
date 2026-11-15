@@ -289,3 +289,60 @@
     }
 }
 
+.tt-report-content {
+    display: flex;
+    align-items: end;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.tt-report-content .tt-freight-field {
+    flex: 1;
+    min-width: 220px;
+    margin-bottom: 0;
+}
+
+.tt-report-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 13px 20px;
+    border: 1px solid rgba(57, 255, 136, .3);
+    border-radius: 8px;
+    background: rgba(57, 255, 136, .12);
+    color: #39ff88;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.tt-report-button:hover {
+    background: #39ff88;
+    color: #101416;
+    transform: translateY(-2px);
+}
+
+.tt-report-button:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.tt-report-message {
+    margin-top: 15px;
+    color: #39ff88;
+    font-size: 13px;
+}
+
+@media (max-width: 768px) {
+    .tt-report-content {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .tt-report-button {
+        width: 100%;
+    }
+}
+

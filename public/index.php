@@ -22,7 +22,11 @@ if (empty($_SESSION)) {
             'home' => 'views/home.php',
             'produtos' => 'views/produtos.php',
             'transporte' => 'views/transporte.php',
+            
+            //Contollers
             'logoutController' => 'LogoutController.php',
+            'relatorioFretes' => 'views/relatorioFretes.php',
+            'relatorioFrete' => 'controllers/FreteController.php',
 
         ];
     } else {
@@ -36,11 +40,15 @@ if (empty($_SESSION)) {
             'transportador' => 'views/admin/transportadores.php',
             'endereco' => 'views/admin/endereco.php',
             'frete' => 'views/admin/fretes.php',
+            'relatorioFretes' => 'views/relatorioFretes.php',
+
+            //Contollers
             'usuarioController' => 'controllers/UsuarioController.php',
             'produtoController' => 'controllers/ProdutoController.php',
             'transportadorController' => 'controllers/TransportadorController.php',
             'enderecoController' => 'controllers/EnderecoController.php',
             'freteController' => 'controllers/FreteController.php',
+            'relatorioFrete' => 'controllers/FreteController.php', 
             
         ];
     }
@@ -61,6 +69,14 @@ if (empty($_SESSION)) {
             $pagina = 'home';
         }
     }
+}
+
+
+if ($pagina === 'relatorioFrete') {
+
+    \app\controllers\FreteController::exportarRelatorio();
+
+    exit;
 }
 
 //Faz logout do usuário
@@ -145,6 +161,7 @@ $arquivo = __DIR__ . '/../app/' . $paginas[$pagina];
     <link rel="stylesheet" type="text/css" href="./assets/css/produtos.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/home.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/fretes.css">
+    <script src="./assets/js/relatorioFretes.js"></script>
     <script src="./assets/js/fretes.js"></script>
     <title>TranspTech</title>
 </head>

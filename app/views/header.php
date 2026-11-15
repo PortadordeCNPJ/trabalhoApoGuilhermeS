@@ -14,21 +14,24 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="index.php?pagina=home">Home</a>
           </li>
-          <?php if ($_SESSION['tipo_usuario'] === "admin") : 
-          ?>
           <li class="nav-item">
-            <button class="nav-link" type="button" data-bs-toggle="menu" aria-expanded="false">
-              Menu de Admistrador
-            </button>
-            <div class="menu">
-              <a class="menu-item" href="index.php?pagina=transportador">Cadastrar Transportadores</a>
-              <a class="menu-item" href="index.php?pagina=cadastroProdutos">Cadastrar Produtos</a>
-              <a class="menu-item" href="index.php?pagina=criarUsuarios">Cadastrar Usuário</a>
-              <a class="menu-item" href="index.php?pagina=endereco">Cadastrar Endereco</a>
-              <a class="menu-item" href="index.php?pagina=frete">Cadastrar Frete</a>
-            </div>
+            <a class="nav-link active" aria-current="page" href="index.php?pagina=relatorioFretes">Relatório Fretes</a>
           </li>
-          <?php endif; 
+          <?php if ($_SESSION['tipo_usuario'] === "admin") :
+          ?>
+            <li class="nav-item">
+              <button class="nav-link" type="button" data-bs-toggle="menu" aria-expanded="false">
+                Menu de Admistrador
+              </button>
+              <div class="menu">
+                <a class="menu-item" href="index.php?pagina=transportador">Cadastrar Transportadores</a>
+                <a class="menu-item" href="index.php?pagina=cadastroProdutos">Cadastrar Produtos</a>
+                <a class="menu-item" href="index.php?pagina=criarUsuarios">Cadastrar Usuário</a>
+                <a class="menu-item" href="index.php?pagina=endereco">Cadastrar Endereco</a>
+                <a class="menu-item" href="index.php?pagina=frete">Cadastrar Frete</a>
+              </div>
+            </li>
+          <?php endif;
           ?>
         </ul>
       </div>
