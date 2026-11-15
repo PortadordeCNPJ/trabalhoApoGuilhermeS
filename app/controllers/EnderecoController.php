@@ -62,7 +62,7 @@ class EnderecoController
         if (!empty($erros)) {
             $_SESSION['erros_endereco'] = $erros;
 
-            header('Location: index.php?pagina=cadastro_enderecos');
+            header('Location: index.php?pagina=endereco');
             exit;
         }
 

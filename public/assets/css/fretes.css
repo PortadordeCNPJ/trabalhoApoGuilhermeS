@@ -1,0 +1,291 @@
+.tt-freight-form-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.tt-freight-form-container form {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.tt-freight-form-container input,
+.tt-freight-form-container select,
+.tt-freight-form-container textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.tt-freight {
+    width: 100%;
+    padding: 30px;
+    color: #f1f5f2;
+    box-sizing: border-box;
+}
+
+.tt-freight-header {
+    margin-bottom: 28px;
+}
+
+.tt-freight-eyebrow {
+    color: #39ff88;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.tt-freight-header h1 {
+    margin: 8px 0;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.tt-freight-header p,
+.tt-freight-section-title p {
+    color: #929b96;
+    margin: 0;
+}
+
+.tt-freight-card {
+    background: #171b1e;
+    border: 1px solid #292f32;
+    border-radius: 14px;
+    padding: 25px;
+    margin-bottom: 22px;
+}
+
+.tt-freight-section-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.tt-freight-section-title > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    color: #39ff88;
+    background: rgba(57, 255, 136, .10);
+    font-weight: 700;
+}
+
+.tt-freight-section-title h2 {
+    font-size: 18px;
+    margin: 0 0 5px;
+}
+
+.tt-freight-section-title p {
+    font-size: 13px;
+}
+
+.tt-freight-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.tt-freight-field {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-width: 0;
+    margin-bottom: 16px;
+}
+
+.tt-freight-field label {
+    color: #dce4df;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.tt-freight-field input,
+.tt-freight-field select,
+.tt-freight-field textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 14px;
+    border: 1px solid #343c3f;
+    border-radius: 8px;
+    outline: none;
+    background: #101416;
+    color: #f1f5f2;
+    font: inherit;
+    font-size: 14px;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.tt-freight-field input:focus,
+.tt-freight-field select:focus,
+.tt-freight-field textarea:focus {
+    border-color: #39ff88;
+    box-shadow: 0 0 0 3px rgba(57, 255, 136, .09);
+}
+
+.tt-freight-field textarea {
+    resize: vertical;
+}
+
+.tt-product-row {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(120px, 1fr);
+    gap: 16px;
+    align-items: end;
+    padding: 16px;
+    margin-bottom: 14px;
+    border: 1px solid #30383a;
+    border-radius: 10px;
+    background: #121719;
+}
+
+.tt-product-row .tt-freight-field {
+    margin: 0;
+}
+
+.tt-freight-add,
+.tt-product-remove,
+.tt-freight-reset,
+.tt-freight-submit {
+    border: 0;
+    border-radius: 8px;
+    padding: 12px 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.tt-freight-add {
+    background: rgba(57, 255, 136, .10);
+    color: #39ff88;
+    border: 1px solid rgba(57, 255, 136, .25);
+}
+
+.tt-freight-add:hover {
+    background: rgba(57, 255, 136, .18);
+}
+
+.tt-product-remove {
+    grid-column: 1 / -1;
+    justify-self: start;
+    padding: 9px 12px;
+    color: #ff8585;
+    background: rgba(255, 90, 90, .10);
+}
+
+.tt-freight-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin: 22px 0 35px;
+}
+
+.tt-freight-reset {
+    color: #d5ded8;
+    background: #292f32;
+}
+
+.tt-freight-submit {
+    color: #101416;
+    background: #39ff88;
+}
+
+.tt-freight-submit:hover {
+    background: #20e975;
+    transform: translateY(-1px);
+}
+
+.tt-freight-alert {
+    padding: 15px 18px;
+    margin-bottom: 20px;
+    border-radius: 9px;
+    font-size: 14px;
+}
+
+.tt-freight-alert.success {
+    color: #75ffad;
+    background: rgba(57, 255, 136, .10);
+    border: 1px solid rgba(57, 255, 136, .25);
+}
+
+.tt-freight-alert.error {
+    color: #ff9999;
+    background: rgba(255, 90, 90, .09);
+    border: 1px solid rgba(255, 90, 90, .25);
+}
+
+.tt-freight-alert ul {
+    margin-bottom: 0;
+}
+
+.tt-freight-empty {
+    color: #929b96;
+    text-align: center;
+    padding: 25px;
+}
+
+.tt-freight-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.tt-freight-table {
+    width: 100%;
+    border-collapse: collapse;
+    white-space: nowrap;
+}
+
+.tt-freight-table th,
+.tt-freight-table td {
+    padding: 14px 12px;
+    text-align: left;
+    border-bottom: 1px solid #30383a;
+    font-size: 13px;
+}
+
+.tt-freight-table th {
+    color: #39ff88;
+    font-weight: 700;
+}
+
+.tt-freight-table td {
+    color: #d8e0db;
+}
+
+.tt-freight-status {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 20px;
+    color: #ffd780;
+    background: rgba(255, 196, 87, .10);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    .tt-freight {
+        padding: 16px;
+    }
+
+    .tt-freight-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .tt-product-row {
+        grid-template-columns: 1fr;
+    }
+
+    .tt-freight-actions {
+        flex-direction: column-reverse;
+    }
+
+    .tt-freight-actions button {
+        width: 100%;
+    }
+}
+

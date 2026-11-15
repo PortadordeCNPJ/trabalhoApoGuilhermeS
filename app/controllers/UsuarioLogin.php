@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if ($usuario['tipo_usuario'] === 'admin') {
                 echo "<script>alert('Login efetuado com sucesso');</script>";
-                header('Location: index.php?pagina=admin');
+                header('Location: index.php?pagina=home');
             } else {
                 echo "<script>alert('Login efetuado com sucesso');</script>";
                 header('Location: index.php?pagina=home');

@@ -21,24 +21,27 @@ if (empty($_SESSION)) {
             //Views
             'home' => 'views/home.php',
             'produtos' => 'views/produtos.php',
-            'fretes' => 'views/fretes.php',
             'transporte' => 'views/transporte.php',
+            'logoutController' => 'LogoutController.php',
+
         ];
     } else {
         $paginas = [
             //Views
             'home' => 'views/home.php',
-            'fretes' => 'views/fretes.php',
             'transporte' => 'views/transporte.php',
             'criarUsuarios' => 'views/admin/criarUsuarios.php',
             'admin' => 'views/admin/adminHome.php',
             'cadastroProdutos' => 'views/admin/produtos.php',
             'transportador' => 'views/admin/transportadores.php',
             'endereco' => 'views/admin/endereco.php',
+            'frete' => 'views/admin/fretes.php',
             'usuarioController' => 'controllers/UsuarioController.php',
             'produtoController' => 'controllers/ProdutoController.php',
             'transportadorController' => 'controllers/TransportadorController.php',
             'enderecoController' => 'controllers/EnderecoController.php',
+            'freteController' => 'controllers/FreteController.php',
+            
         ];
     }
 }
@@ -58,6 +61,18 @@ if (empty($_SESSION)) {
             $pagina = 'home';
         }
     }
+}
+
+//Faz logout do usuário
+if ($pagina === 'logout') {
+    \app\controllers\LogoutController::sair();
+    exit;
+}
+
+// Processa o cadastro antes de qualquer saída HTML.
+if ($pagina === 'freteController') {
+    \app\controllers\FreteController::cadastrar();
+    exit;
 }
 
 // Carrega o formulário de cadastro de enderecos 
@@ -101,6 +116,16 @@ if ($pagina === 'cadastroProdutos') {
     $produtos = \app\controllers\ProdutoController::index();
 }
 
+$dados = [];
+$fretes = [];
+
+if ($pagina === 'frete') {
+    $resultado = \app\controllers\FreteController::index();
+
+    $dados = $resultado['dados'];
+    $fretes = $resultado['fretes'];
+}
+
 // Caminho completo da página
 $arquivo = __DIR__ . '/../app/' . $paginas[$pagina];
 
@@ -119,6 +144,8 @@ $arquivo = __DIR__ . '/../app/' . $paginas[$pagina];
     <link rel="stylesheet" type="text/css" href="./assets/css/transptech.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/produtos.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/home.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/fretes.css">
+    <script src="./assets/js/fretes.js"></script>
     <title>TranspTech</title>
 </head>
 

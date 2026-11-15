@@ -1,5 +1,0 @@
-Como eu dividiria as responsabilidades
-Funcionalidade	Quem pode fazer?
-Cadastrar endereços de origem e destino	Usuário autorizado a registrar fretes
-Criar fretes	Usuário autorizado
-Consultar e gerenciar todos os fretes	Administrador

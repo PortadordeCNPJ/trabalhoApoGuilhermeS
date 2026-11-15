@@ -82,8 +82,6 @@ class TransportadorController
                 'Não foi possível cadastrar o transportador. Verifique os dados e tente novamente.'
             ];
 
-            // Durante o desenvolvimento, consulte o log do PHP
-            // para identificar o erro técnico.
             error_log($e->getMessage());
         }
 

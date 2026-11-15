@@ -14,36 +14,28 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="index.php?pagina=home">Home</a>
           </li>
-          <?php if ($_SESSION['tipo_usuario'] === "admin") : ?>
-            <li class="nav-item">
-              <a class="nav-link" href="index.php?pagina=transportador">Cadastrar Transportadores</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="index.php?pagina=cadastroProdutos">Cadastrar Produtos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="index.php?pagina=criarUsuarios">Cadastrar usuário</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="index.php?pagina=endereco">Cadastrar Endereço</a>
-            </li>
-          <?php endif; ?>
+          <?php //if ($_SESSION['tipo_usuario'] === "admin") : 
+          ?>
           <li class="nav-item">
             <button class="nav-link" type="button" data-bs-toggle="menu" aria-expanded="false">
-              Menu link
+              Menu de Admistrador
             </button>
             <div class="menu">
-              <a class="menu-item" href="#">Action</a>
-              <a class="menu-item" href="#">Another action</a>
-              <a class="menu-item" href="#">Something else here</a>
+              <a class="menu-item" href="index.php?pagina=transportador">Cadastrar Transportadores</a>
+              <a class="menu-item" href="index.php?pagina=cadastroProdutos">Cadastrar Produtos</a>
+              <a class="menu-item" href="index.php?pagina=criarUsuarios">Cadastrar Usuário</a>
+              <a class="menu-item" href="index.php?pagina=endereco">Cadastrar Endereco</a>
+              <a class="menu-item" href="index.php?pagina=frete">Cadastrar Frete</a>
             </div>
           </li>
+          <?php //endif; 
+          ?>
         </ul>
       </div>
     </dialog>
-    <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-      <button class="btn-outline theme-success" type="submit">Search</button>
-    </form>
+    <a href="index.php?pagina=logout" class="tt-logout">
+      <i class="bi bi-box-arrow-right"></i>
+      Sair
+    </a>
   </div>
 </nav>
