@@ -7,6 +7,13 @@ O sistema também conta com diferentes níveis de acesso para administradores, u
 Nosso objetivo é oferecer uma solução prática, organizada e intuitiva, contribuindo para tornar os processos logísticos mais eficientes e facilitar o acompanhamento das entregas.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Recomendaçoes:
+
+Use o SQL dentro de public/assets/sql/transp_tech.sql (Aqui estao todas as tabelas já possuem pelo menos um insert)
+
+O email de administrador é guilherme@transptech.com e senha 123. Com ele é possivel criar novos usuários e ter acesso ao menu admin.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 1 - Para usar esse código é necessário utilizar o composer. Primeiro instale o composer na sua maquina, com este link: https://getcomposer.org/download/
 
